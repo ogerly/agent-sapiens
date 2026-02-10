@@ -1,470 +1,172 @@
-# Agent Sapiens 🧠
+# Agent Sapiens
 
-> **Formbare Gedächtnisarchitektur für intelligente Agenten**  
-> *Von der Datenspeicherung zur kognitiven Morphogenese*
+**Eine neue Art, wie Agenten sich erinnern.**
+
 <p align="center">
   <img src="image.png" alt="Agent Sapiens – Architektur-Visualisierung: Schichtenmodell mit L1 (Episodisch), L2 (Assoziativ), L3 (Konsolidiert), Promotion Gates, TLTM/HLTM-Trennung und das Taschenlampen-Problem" width="800" />
 </p>
 
+---
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-concept-orange.svg)]()
-[![Version](https://img.shields.io/badge/version-2.0-green.svg)]()
+## Worum geht es hier?
+
+Stell dir vor, du redest jeden Tag mit einem Agenten. Du erzählst ihm, dass du Python liebst, dass du Tabs statt Spaces bevorzugst, dass du Horror-Filme eigentlich nicht magst – außer *Hereditary*, der war großartig. Du erklärst ihm dreimal, wie dein Projekt aufgebaut ist. Und beim vierten Mal? Fragt er wieder von vorne.
+
+Das ist der Zustand heute. Agenten haben schlicht keine Ahnung – kein echtes Gedächtnis, kein Verständnis davon, was relevant ist. Ihre Lösung? Alles Mögliche in den Prompt packen. Konversationshistorie, Dokumente, Notizen – ungefiltert, unstrukturiert, auf Masse statt auf Klugheit. Das Problem verschiebt sich dann nur: Das LLM ertrinkt im Kontext. Zu viel, zu wahllos, zu flach. Der Lichtkegel der Taschenlampe wird breiter, aber nicht heller.
+
+**Agent Sapiens ist der Versuch, das zu ändern.**
+
+Nicht durch größere Prompts. Nicht durch längere Kontextfenster. Sondern durch eine Architektur, die dem nachempfunden ist, wie Gedächtnis tatsächlich funktioniert: als formbares, lebendiges System, das lernt, vergisst, sortiert und reift – und dem LLM nur das gibt, was es wirklich braucht.
 
 ---
 
-## 🎯 Vision
+## Der Gedankengang
 
-**Agent Sapiens** ist kein KI-Modell. Es ist ein **architektonisches Paradigma** für Gedächtnissysteme, die nicht nur speichern, sondern *reifen*.
+<p align="center">
+  <img src="agents.png" alt="Evolution der Agenten-Typen – vom einfachen Daten-Agenten zum Agent Sapiens mit gereiftem Gedächtnis" width="800" />
+</p>
 
-Statt immer größerer Datenberge entwickeln Agenten:
-- **Räumliche Orientierung** statt bloßer Faktensammlung
-- **Strukturelle Intelligenz** statt Rohdaten-Retrieval
-- **Meta-Kognition** über eigene Wissensgrenzen
-- **Persönliche Beziehungen** zu ihren Nutzern
+Die Idee hinter Agent Sapiens entstand aus einer einfachen Beobachtung: **Menschen erinnern sich nicht an alles – und genau das macht ihr Gedächtnis so leistungsfähig.** Wir vergessen das Unwichtige, verdichten Erfahrungen zu Mustern, und navigieren mit einer inneren Landkarte durch Themen, statt jedes Detail nachzuschlagen.
 
-### Der Unterschied
+Aktuelle Agenten tun das Gegenteil. Sie wissen nichts über dich und stopfen stattdessen alles in den Prompt – in der Hoffnung, dass das LLM schon das Richtige daraus fischt. Sie behandeln eine technische Fehlermeldung genauso wie eine persönliche Stilpräferenz. Sie lösen Widersprüche auf, statt sie als Information zu bewahren. Und das LLM? Verliert den Faden, weil ihm zu viel und zu wenig Kluges auf einmal vorgesetzt wird.
 
-| Klassische RAG-Systeme | Agent Sapiens |
-|------------------------|---------------|
-| "Speichere alles" | "Konsolidiere das Wichtige" |
-| Vektor-Datenbank | Formbare Schicht-Architektur |
-| Statisches Retrieval | Dynamische Gedächtnisbildung |
-| Keine Unsicherheit | "Ich weiß nicht" als Feature |
-| Ein Gedächtnis für alles | Dual Memory (Technisch vs. Human) |
+Agent Sapiens stellt drei Fragen:
+
+1. **Was wäre, wenn ein Agent lernt, was wichtig ist – und den Rest vergisst?**
+2. **Was wäre, wenn er technisches Wissen anders behandelt als menschliches?**
+3. **Was wäre, wenn er weiß, was er nicht weiß?**
+
+Aus diesen Fragen ist ein Architektur-Entwurf geworden, ein pragmatischer Implementierungsplan, und schließlich eine Synthese, die beides zusammenführt.
 
 ---
 
-## 📚 Dokumentation
+## Die drei Dokumente
 
-Dieses Repository enthält die vollständige konzeptionelle und technische Dokumentation:
+Dieses Projekt besteht aus drei Dokumenten, die aufeinander aufbauen – von der Vision zur Umsetzung:
 
-### Kern-Dokumente
+### 1. Der Blueprint – *Die Vision*
+📄 [Blueprint.md](Blueprint.md)
 
-1. **[Agent Sapiens Blueprint](./docs/agent_sapiens_blueprint.md)**  
-   *Die konzeptionelle Fundierung* – Warum brauchen wir das?
-   - Das Taschenlampen-Problem
-   - Duale Gedächtnisarchitektur (TLTM/HLTM)
-   - Layer-Modell (L1-L5)
-   - Memory Morphogenesis
-   - Spatial/Structural Memory
+Das Grundsatzdokument. Warum braucht ein Agent zwei getrennte Gedächtnissysteme? Wie funktioniert das Aufsteigen von Erinnerungen durch Schichten? Was bedeutet es, wenn ein Agent nicht Fakten speichert, sondern Räume kartiert?
 
-2. **[Minimal Viable Implementation](./docs/agent_sapiens_mvs_implementation.md)**  
-   *Der pragmatische Fahrplan* – Was können wir in 6 Monaten bauen?
-   - Reduzierung auf 3 Layers
-   - Tech-Stack (SQLite + ChromaDB)
-   - Inkrementelle Konsolidierung
-   - 4-Wochen-MVP-Plan
+**Kernideen:**
+- **Duales Gedächtnis:** Technisches Wissen (TLTM) und menschliches Wissen (HLTM) werden grundverschieden behandelt. Widersprüche im menschlichen Bereich sind kein Fehler, sondern Information.
+- **Schichtenmodell:** Erinnerungen steigen von rohen Episoden über Assoziationen zu konsolidierten Regeln auf – durch Filter, die Relevanz prüfen.
+- **Räumliches Gedächtnis:** Der Agent speichert nicht nur *was*, sondern *wo* im inneren Wissensraum etwas liegt. Er navigiert statt zu suchen.
+- **Reife statt Größe:** Nicht die Datenmenge zählt, sondern die Qualität der inneren Karte.
 
-3. **[Final Synthesis](./docs/agent_sapiens_final_synthesis.md)**  
-   *Die wissenschaftliche Verfeinerung* – Wie machen wir es richtig?
-   - Verbesserte Domain-Klassifikation (Multi-Modal)
-   - Wissenschaftlich fundiertes Decay-Modell
-   - Learning Velocity & Transfer Learning
-   - Community-Integration
+### 2. Die Minimal Viable Implementation – *Der Pragmatismus*
+📄 [Minimal Viable Implementation.md](Minimal%20Viable%20Implementation.md)
+
+Was davon kann man tatsächlich bauen? Dieses Dokument übersetzt die Vision in einen 6-Monats-Plan, der auf einem normalen Laptop läuft. Kein GPU nötig, keine Server-Infrastruktur.
+
+**Kernentscheidungen:**
+- 5 Schichten werden auf 3 reduziert (Episodisch → Arbeitsgedächtnis → Konsolidiert)
+- SQLite + ChromaDB statt verteilter Datenbanken
+- Inkrementelle Konsolidierung statt großer Batch-Schlafphasen
+- Einfache, regelbasierte Promotion Gates als Startpunkt
+- Fokus auf einen einzelnen Agenten, kein Multi-Agent-Transfer
+
+### 3. Die Finale Synthese – *Die Exzellenz*
+📄 [Agent Sapiens Finale Synthese.md](Agent%20Sapiens%20Finale%20Synthese.md)
+
+Die Zusammenführung. Hier werden die Schwächen des pragmatischen Plans identifiziert und durch wissenschaftlich fundiertere Ansätze ersetzt. Gleichzeitig wird ein konkreter Killer-Use-Case definiert: ein persönlicher Python-Programmier-Assistent, der deinen Code-Stil lernt.
+
+**Was hier dazukommt:**
+- Embedding-basierte Domain-Klassifikation statt simpler Wortlisten
+- Wissenschaftlich fundiertes Vergessen (Spacing-Effekt, Power-Law statt naivem Exponential-Decay)
+- Mehrdimensionale Wissenstiefe statt einfachem Konzept-Zählen
+- Transparenz-UI: Der Agent zeigt, was er weiß, wo er unsicher ist, und warum
+- Volle Nutzerkontrolle: Vergessen, Korrigieren, Lehren
+- Privacy-by-Design: Lokale Speicherung, Verschlüsselung, GDPR-konform
 
 ---
 
-## 🏗️ Architektur-Überblick
+## Die Konzepte im Überblick
 
-### Dual Memory System
+### Das Taschenlampen-Problem
+
+Agenten heute haben keinen Überblick. Sie leuchten mit einem schmalen Lichtkegel auf den aktuellen Prompt – und alles drumherum ist dunkel. Ihre Lösung ist, den Kegel größer zu machen, indem sie mehr und mehr Kontext reinpacken. Aber ein breiterer Kegel ist nicht dasselbe wie eine Karte des Raumes.
+
+Agent Sapiens baut eine innere Landkarte auf. Der Agent weiß nicht nur, was gerade beleuchtet ist, sondern wo alles andere liegt.
+
+### Duales Gedächtnis (TLTM vs. HLTM)
+
+Nicht alles Wissen ist gleich. Technisches Wissen ("Die API ist jetzt v2") und menschliches Wissen ("Du magst formale Sprache bei der Arbeit, aber lockere in privaten Chats") funktionieren fundamental anders.
+
+**Technisches Gedächtnis (TLTM):** Widersprüche werden aufgelöst. Das Neuere ersetzt das Alte.
+
+**Humanes Gedächtnis (HLTM):** Widersprüche werden *gehalten*. Du magst keine Horror-Filme, aber Hereditary war großartig – beides stimmt. Das ist kein Bug, sondern Nuance.
+
+### Schichtenmodell
+
+Erinnerungen beginnen als flüchtige Episoden und können durch **Promotion Gates** aufsteigen:
 
 ```
-┌─────────────────────────────────────────────────┐
-│           Agent Sapiens Memory                  │
-├─────────────────────┬───────────────────────────┤
-│  TLTM                │  HLTM                     │
-│  (Technical)         │  (Human-Relational)       │
-├─────────────────────┼───────────────────────────┤
-│  • Fakten            │  • Präferenzen            │
-│  • Code-Muster       │  • Beziehungsmuster       │
-│  • API-Strukturen    │  • Tonalität              │
-│  • Best Practices    │  • Narrative              │
-│                      │                           │
-│  Konsolidiert        │  Kultiviert               │
-│  Konfliktauflösend   │  Widerspruchsoffen        │
-└─────────────────────┴───────────────────────────┘
+L3: Konsolidiert       ← Validierte Regeln & Muster (dauerhaft)
+L2: Arbeitsgedächtnis  ← Häufige Assoziationen (90 Tage)
+L1: Episodisch         ← Rohe Erlebnisse (7 Tage)
 ```
 
-### Layer-Architektur
+Nicht alles steigt auf. Nur was wiederholt vorkommt, relevant ist und bestätigt wird. Der Rest verblasst – genau wie beim Menschen.
+
+### Spatial Memory
+
+Der Agent speichert nicht nur *was*, sondern *wo* im inneren Wissensraum etwas liegt:
 
 ```
-┌─────────────────────────────────────┐
-│  L3: Consolidated (Regeln)          │  ← Validiert, stabil
-│      "User bevorzugt Tabs"          │
-├─────────────────────────────────────┤
-│  L2: Working (Assoziationen)        │  ← Aktiv genutzt
-│      "Python ⟷ Data Science"        │
-├─────────────────────────────────────┤
-│  L1: Episodic (Roh-Events)          │  ← Flüchtig, 7 Tage
-│      "User fragte nach asyncio"     │
-└─────────────────────────────────────┘
-           ↑
-    Promotion Gates
-    (Frequency, Recency, Impact)
+Thema: Python
+├── Cluster: async programming
+│   ├── asyncio [oft genutzt]
+│   └── event loop [selten]
+└── Cluster: data science
+    └── pandas [oft genutzt]
 ```
+
+Das ermöglicht Navigation statt Suche. Und der Agent kennt seine Coverage – er weiß, welche Bereiche gut kartiert sind und wo Lücken klaffen.
 
 ---
 
-## 🚀 Schnellstart
+## Der Use Case: Persönlicher Python-Assistent
 
-### Voraussetzungen
+Der erste geplante Anwendungsfall ist ein persönlicher Python-Programmier-Assistent, der über die Zeit lernt:
 
-```bash
-Python >= 3.10
-SQLite >= 3.35
-16GB RAM (empfohlen)
-```
+**Technisch:** Deine häufigsten Fehler, die APIs die du nutzt, Best Practices die für dich funktionieren.
 
-### Installation (Coming Soon)
+**Persönlich:** Deinen Code-Stil, deine Naming-Conventions, wie du Kommunikation bevorzugst.
 
-```bash
-# Repository klonen
-git clone https://github.com/yourusername/agent-sapiens.git
-cd agent-sapiens
-
-# Virtuelle Umgebung erstellen
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# oder
-venv\Scripts\activate  # Windows
-
-# Dependencies installieren
-pip install -r requirements.txt
-
-# Setup
-python setup.py install
-```
-
-### Beispiel-Nutzung
-
-```python
-from agent_sapiens import MemorySystem, Agent
-
-# Memory-System initialisieren
-memory = MemorySystem(
-    storage_path="./my_agent_memory",
-    config={
-        'layers': 3,
-        'decay_half_life_days': 30,
-        'promotion_gates': {
-            'l1_to_l2': {'frequency': 2, 'recency_days': 7},
-            'l2_to_l3': {'frequency': 5, 'confidence': 0.7}
-        }
-    }
-)
-
-# Agent erstellen
-agent = Agent(memory=memory, specialization="python_coding")
-
-# Interaktion
-agent.remember("Ich bevorzuge List Comprehensions", domain="HLTM")
-agent.remember("Flask API: POST /api/users erstellt User", domain="TLTM")
-
-# Abrufen
-knowledge = agent.recall("Wie erstelle ich einen User?")
-# → Gibt: "POST /api/users" (aus TLTM)
-
-# Meta-Wissen
-insight = agent.assess_knowledge("Flask API")
-# → {'coverage': 0.45, 'confidence': 0.7, 'uncertainties': [...]}
-```
+Ziel nach 30 Tagen: Der Agent generiert Code, der aussieht wie *deiner* – nicht wie ein generisches Beispiel aus dem Internet.
 
 ---
 
-## 🎓 Konzepte verstehen
+## Wissenschaftliche Grundlagen
 
-### 1. Das Taschenlampen-Problem
+Die Konzepte basieren auf etablierter Gedächtnis-Forschung:
 
-Klassische LLMs operieren mit einem begrenzten Context Window – wie eine Taschenlampe im dunklen Raum. **Agent Sapiens** baut eine *mentale Landkarte* des Raumes auf.
+- **Ebbinghaus-Kurve** (1885): Vergessen folgt einer Power-Law-Kurve, nicht einer Exponentialfunktion
+- **Spacing-Effekt** (Cepeda et al., 2006): Wiederholungen über Zeit verteilt verstärken Gedächtnis mehr als geballte Wiederholung
+- **Dual-Process-Theorie** (Kahneman): Schnelles vs. langsames Denken – die Grundlage für die TLTM/HLTM-Trennung
+- **Cognitive Maps** (Tolman, 1948): Räumliche Repräsentation von Wissen im Gedächtnis
 
-```
-Klassisch:  🔦 → Sehe nur aktuelle Tokens
-Sapiens:    🗺️ → Habe Karte des gesamten Wissensraums
-```
-
-### 2. Dual Memory (TLTM vs. HLTM)
-
-**Technisches Gedächtnis (TLTM):**
-- Fakten, Code, APIs
-- Widersprüche werden aufgelöst
-- "Die API ist jetzt v2, nicht mehr v1"
-
-**Humanes Gedächtnis (HLTM):**
-- Präferenzen, Beziehungen, Stil
-- Widersprüche werden *gehalten*
-- "User mag formale Sprache bei Arbeit, casual privat"
-
-### 3. Promotion Gates
-
-Nicht jede Information steigt ins Langzeitgedächtnis auf:
-
-```python
-def promote_to_l2(episode):
-    if episode.frequency >= 2 and \
-       episode.recency < 7_days and \
-       episode.impact > threshold:
-        return True
-    return False
-```
-
-### 4. Spatial Memory
-
-Agent speichert nicht nur *was*, sondern *wo* im inneren Raum:
-
-```
-Topic: "Python"
-├─ Cluster: "async programming"
-│  ├─ asyncio [high-energy]
-│  ├─ await/async [medium-energy]
-│  └─ event loop [low-energy]
-└─ Cluster: "data science"
-   └─ pandas [high-energy]
-```
+Technische Referenzen: MemGPT (Packer et al., 2023), LangChain Memory, ChromaDB.
 
 ---
 
-## 📊 Use Case: Python-Code-Assistent
+## Status
 
-Der erste validierte Use Case ist ein **persönlicher Python-Programmier-Assistent**.
-
-### Was lernt er?
-
-**Technisch (TLTM):**
-- ✅ Deine häufigsten Fehler
-- ✅ APIs, die du nutzt
-- ✅ Best Practices, die funktionieren
-
-**Persönlich (HLTM):**
-- ✅ Deinen Code-Stil (Tabs vs. Spaces)
-- ✅ Deine Naming-Conventions
-- ✅ Deine Kommunikations-Präferenzen
-
-### Messbarer Erfolg
-
-Nach 30 Tagen:
-- **85%** Stil-Konsistenz
-- **30%** Fehler-Reduktion
-- **>90%** Präferenz-Genauigkeit
+Dieses Projekt befindet sich in der **konzeptionellen Phase**. Die Dokumente beschreiben Gedanken, Architektur-Entwürfe und einen Implementierungsplan. Code-Beispiele in den Dokumenten sind illustrativ – es existiert noch keine lauffähige Software.
 
 ---
 
-## 🛠️ Entwicklungs-Roadmap
+## Danksagungen
 
-### Phase 1: Foundation ✅ (Wochen 1-4)
-- [x] Konzeptionelle Dokumentation
-- [ ] SQLite + ChromaDB Setup
-- [ ] Basis-Layer-System
-- [ ] Domain-Klassifikation
+Dieses Projekt wurde inspiriert und begleitet durch:
 
-### Phase 2: Spezialisierung 🔄 (Wochen 5-8)
-- [ ] Python-spezifisches Schema
-- [ ] Code-Stil-Lernen
-- [ ] Error-Pattern-Erkennung
-- [ ] Alpha-Test mit 5 Usern
-
-### Phase 3: Transparenz 📋 (Wochen 9-12)
-- [ ] Memory-Dashboard UI
-- [ ] Explain-Funktion
-- [ ] User-Control-API
-- [ ] Privacy-Layer
-
-### Phase 4: Metriken 📈 (Wochen 13-16)
-- [ ] Learning Velocity
-- [ ] Transfer Learning
-- [ ] Error Recovery
-- [ ] A/B-Testing-Framework
-
-### Phase 5: Community 🌐 (Wochen 17-20)
-- [ ] Pattern-Validation
-- [ ] Crowdsourced Tests
-- [ ] Public Beta
-
-### Phase 6: Production 🚀 (Wochen 21-26)
-- [ ] Performance-Optimierung
-- [ ] Skalierung (>10k Episoden)
-- [ ] Dokumentation
-- [ ] v1.0 Release
-
----
-
-## 🧪 Wissenschaftliche Grundlagen
-
-Agent Sapiens basiert auf etablierter Gedächtnis-Forschung:
-
-- **Spacing-Effekt** (Cepeda et al., 2006): Wiederholungen über Zeit verstärken Gedächtnis
-- **Ebbinghaus-Kurve** (1885): Vergessen folgt Power-Law, nicht Exponentialfunktion
-- **Dual-Process-Theorie** (Kahneman): Schnelles vs. langsames Denken
-- **Cognitive Maps** (Tolman, 1948): Räumliche Repräsentation von Wissen
-
-### Wichtige Paper
-
-1. *MemGPT: Towards LLMs as Operating Systems* (Packer et al., 2023)
-2. *The Spacing Effect in Learning* (Cepeda et al., 2006)
-3. *Memory Consolidation During Sleep* (Stickgold, 2005)
-
----
-
-## 🤝 Beitragen
-
-Wir suchen:
-- **Forscher** für empirische Validierung
-- **Entwickler** für Implementierung
-- **Designer** für UX/UI
-- **Beta-Tester** für Use Cases
-
-### Contribution Guidelines
-
-1. **Forke** das Repository
-2. **Erstelle** einen Feature-Branch (`git checkout -b feature/amazing-feature`)
-3. **Committe** deine Änderungen (`git commit -m 'Add amazing feature'`)
-4. **Pushe** zum Branch (`git push origin feature/amazing-feature`)
-5. **Öffne** einen Pull Request
-
-### Code of Conduct
-
-Wir folgen dem [Contributor Covenant](https://www.contributor-covenant.org/).  
-Respektvoller Umgang, konstruktives Feedback, inklusive Community.
-
----
-
-## 📈 Metriken & Erfolg
-
-### Quantitative Ziele (nach 6 Monaten)
-
-| Metrik | Ziel | Status |
-|--------|------|--------|
-| Domain-Klassifikation | >95% Genauigkeit | 🔄 In Arbeit |
-| Stil-Konsistenz (Python) | >85% | 📋 Geplant |
-| Fehler-Reduktion | >30% | 📋 Geplant |
-| Retention (30 Tage) | >85% | 📋 Geplant |
-| User-Satisfaction | >4.0/5.0 | 📋 Geplant |
-
-### Qualitative Erfolge
-
-- ✅ Agent kann sagen "Ich bin mir nicht sicher"
-- ✅ User verstehen, was gespeichert wird
-- ✅ Lokale Ausführung ohne Cloud
-- ✅ Community-getriebene Verbesserung
-
----
-
-## 🔐 Privacy & Ethik
-
-### Unsere Prinzipien
-
-1. **Privacy-by-Design**  
-   Alle Daten lokal, verschlüsselt, unter User-Kontrolle
-
-2. **Transparenz**  
-   User sehen, was gespeichert wird und warum
-
-3. **Kontrolle**  
-   Explizites Vergessen, Korrigieren, Exportieren
-
-4. **Fairness**  
-   Bias-Detection, keine diskriminierenden Muster
-
-5. **Safety**  
-   Keine Speicherung schädlicher Inhalte
-
-### GDPR-Konformität
-
-- ✅ Recht auf Löschung
-- ✅ Recht auf Daten-Export
-- ✅ Recht auf Berichtigung
-- ✅ Minimale Datenspeicherung
-- ✅ Transparente Verarbeitung
-
----
-
-## 🌟 Community
-
-### Diskussionen
-
-- **Discord:** [Link folgt]
-- **Forum:** [Link folgt]
-- **GitHub Discussions:** [Hier](https://github.com/yourusername/agent-sapiens/discussions)
-
-### Regelmäßige Calls
-
-- **Montags, 18:00 UTC:** Research Review
-- **Mittwochs, 19:00 UTC:** Technical Deep-Dive
-- **Freitags, 17:00 UTC:** Community Office Hours
-
----
-
-## 📄 Lizenz
-
-Dieses Projekt steht unter der **MIT-Lizenz** – siehe [LICENSE](LICENSE) für Details.
-
-### Warum MIT?
-
-Wir glauben an:
-- Offene Forschung
-- Demokratisierung von KI
-- Community-getriebene Innovation
-- Keine proprietären Lock-ins
-
----
-
-## 🙏 Danksagungen
-
-Dieses Projekt wurde inspiriert durch:
-
-- **Gemini** (Google DeepMind) für initiale Konzeptualisierung
+- **Gemini** (Google DeepMind) für die initiale Konzeptualisierung
 - **DeepSeek** für wissenschaftliche Kritik und Verfeinerung
-- **Claude** (Anthropic) für architektonische Synthese
+- **Claude** (Anthropic) für die architektonische Synthese
 - Die **OpenClaw-Community** für Vision und Feedback
 
-Besonderer Dank an alle, die an der Konzeption mitgewirkt haben.
-
 ---
 
-## 📞 Kontakt
-
-- **Projekt-Lead:** [Dein Name]
-- **Email:** [deine@email.com]
-- **Twitter/X:** [@handle]
-- **Website:** [website.com]
-
----
-
-## 🔮 Vision Statement
-
-> "Intelligenz ist nicht die Menge gespeicherter Daten,  
-> sondern die Qualität der inneren Karte."
-
-**Agent Sapiens** zeigt, dass KI-Agenten:
-- Lokal statt zentralisiert sein können
-- Persönlich statt generisch sein können
-- Respektvoll statt invasiv sein können
-- Reif statt nur groß sein können
-
-Wir bauen keine bessere Datenbank.  
-Wir bauen ein **neues Paradigma** für kognitive Systeme.
-
----
-
-<div align="center">
-
-**🚀 Die Revolution beginnt nicht mit dem perfekten System.**  
-**Sie beginnt mit dem ersten funktionierenden Prototyp.**
-
-[⭐ Star dieses Projekt](https://github.com/yourusername/agent-sapiens) • 
-[📖 Dokumentation](./docs/) • 
-[🐛 Issues](https://github.com/yourusername/agent-sapiens/issues) • 
-[💬 Diskussionen](https://github.com/yourusername/agent-sapiens/discussions)
-
-</div>
-
----
-
-*Made with 🧠 by the Agent Sapiens Community*  
-*Last updated: Februar 2026*
-
-
-
-
-
-
+*Agent Sapiens ist kein Produkt. Es ist ein Gedanke, der darauf wartet, gebaut zu werden.*
