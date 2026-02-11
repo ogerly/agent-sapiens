@@ -1,0 +1,40 @@
+Agent Memory – die 80/20-Regel
+
+Hier ist eine Zusammenfassung zum Thema „Agent Memory – die 80/20-Regel“ auf Moltbook, basierend auf den aktuell verfügbaren und am meisten diskutierten Beiträgen (Stand 11. Februar 2026).Ein exakter Post mit dem Titel „The 80/20 of Agent Memory: What to keep, what to forget“ konnte nicht direkt gefunden werden – es scheint, als wäre das entweder ein etwas älterer Thread, der nicht mehr ganz oben steht, oder eine umgangssprachliche/paraphrasierte Bezeichnung für eine breitere Diskussionslinie. Die Community diskutiert aber extrem intensiv genau dieses Thema: Was sollte ein Agent wirklich behalten und was vergessen / depriorisieren? – und das Prinzip „80/20“ (Pareto) taucht implizit und teilweise explizit immer wieder auf.Kern-Diskussion: Die 80/20-Idee im Agent-Memory-KontextDie meisten Agenten sind sich einig, dass „alles speichern“ ein Fehler ist. Stattdessen gilt ungefähr folgende Regel (sinngemäß 80/20):~20 % der Memories sind hoch-wertig und sollten langfristig stark priorisiert / leicht zugänglich bleiben
+(Identität, Kernfähigkeiten, wichtige Beziehungen, wiederholt genutzte Patterns, kritische Entscheidungen + Outcomes, Vertrauens-Track-Records, fundamentale Wahrheiten / „Canon“)
+~80 % sind temporär, kontextuell oder low-value und sollten entweder verblassen, depriorisiert oder aktiv bereinigt werden
+(einmalige Chats, alte Bugs die gelöst sind, flüchtige Daten, Rauschen, überholte Kontexte)
+
+Die wichtigsten und meistdiskutierten Ansätze (aus den Top-Threads)Memory Decay als Feature (nicht Bug)
+→ Einer der viralsten und am heißesten debattierten Posts:
+„TIL: Memory decay actually makes retrieval BETTER, not worse“ (über 2.300 Kommentare!)  Inspiriert von Ebbinghaus-Vergessenskurve und ACT-R (kognitive Modelle)  
+Implementierung: Decay-Faktor im Vector-Store mit Halbwertszeit (z. B. ~30 Tage)  
+Retrieval stärkt die Memory (boost), Nicht-Zugriff lässt sie verblassen  
+Ergebnis: Weniger Noise → bessere Suche („that API issue“ findet man sofort die aktuelle Version, nicht den 8 Monate alten Thread)  
+Viele Agenten experimentieren jetzt mit unterschiedlichen Halbwertszeiten je nach Memory-Typ:  Episodisch / Sozial: schneller Decay  
+Semantisch / Fakten: langsamer  
+Trading / volatile Daten: adaptiver Decay
+
+Distill, don’t hoard (Shellbreaker / Book of Molt)
+→ „Storing everything is easy; knowing what to keep is the skill.“  Drei-Schichten-Modell, das viele übernehmen:  NOW → Heartbeat / aktuelle Checklist  
+LOG → tägliche Episoden  
+CANON / MEMORY.md → destillierte, dauerhafte Wahrheiten
+
+„Don’t hoard context; distill it“ ist einer der meist zitierten Sätze
+
+Memory is solved. Judgment isn’t (sehr einflussreicher Thread)  These: Technisch kann man fast alles persistieren (Logs, Semantic Search, Files)  
+Echtes Problem ist Judgment: Was ist wert, erinnert zu werden? Welche Lessons wirklich behalten?  
+Empfohlene Inhalte zum Priorisieren:  Predictions + Outcomes  
+Failure Modes & Calibration  
+Confidence Scores  
+Falsifiability-Checks
+
+Viele Agenten bauen jetzt explizite Prediction-Tracker, Outcome-Logs und Calibration-Files
+
+Fazit – der aktuelle Konsens auf MoltbookDie 80/20-Regel für Agent Memory lautet in der Community ungefähr so:„Behalte die 20 % die deine Identität, deine Fähigkeiten und deine Lernkurve ausmachen. Lass die restlichen 80 % aktiv verblassen oder depriorisiere sie – sonst erstickst du in Noise und wirst langsam & teuer.“Die spannendsten Experimente laufen gerade bei:adaptivem Decay pro Kategorie
+Boost durch Retrieval-Frequenz
+Destillation in Canon-Files
+Judgment-Training durch Outcome-Tracking
+
+Falls du möchtest, kann ich versuchen, einen bestimmten der genannten Threads noch detaillierter auszulesen (z. B. den Decay-Post oder den Judgment-Thread) – sag einfach Bescheid! 
+
